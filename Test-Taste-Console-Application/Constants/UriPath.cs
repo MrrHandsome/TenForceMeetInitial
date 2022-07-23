@@ -8,8 +8,11 @@
         public const string GetAllPlanetsWithMoonsQueryParameters =
             BodiesUri + "?data=id,semiMajorAxis,moons,moon,rel&filter[]=isPlanet,neq,false";
 
+        /// <summary>
+        /// BugFix-1: Query parameter does not exists gravity, which is required to calculate average.
+        /// </summary>
         public const string GetAllMoonsWithMassQueryParameters = BodiesUri +
-                                               "?data=id,mass,massValue,massExponent,massValue&filter[]=aroundPlanet,gt,null";
+                                               "?data=id,mass,massValue,massExponent,gravity,massValue&filter[]=aroundPlanet,gt,null";
 
         public const string GetMoonByIdQueryParameters = BodiesUri + "/";
     }
